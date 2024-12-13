@@ -11,7 +11,8 @@ export default async function PersonPage({
 }: {
   params: Promise<ParamsType>;
 }) {
-  const id = (await params).id;
+  const resolvedParams = await params; // Promise를 해제
+  const { id } = resolvedParams;
   const itemData = await getBillionsItem(id);
   return (
     <div className="flex justify-center flex-col items-center min-h-screen">
@@ -27,4 +28,3 @@ export default async function PersonPage({
     </div>
   );
 }
-``;
