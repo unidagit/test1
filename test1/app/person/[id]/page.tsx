@@ -22,7 +22,9 @@ export default async function PersonPage({
         alt={itemData.name}
         className="rounded-sm"
       />
-      {itemData.name}
+      <p>{itemData.name}</p>
+      <p>{Math.floor(itemData.netWorth)}</p>
     </div>
   );
 }
+``;
