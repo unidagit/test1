@@ -5,7 +5,7 @@ type FormInputType = {
   name: string;
   placeholder: string;
   required: boolean;
-  errors: string[];
+  errors?: string[];
 };
 
 export default function FormInput({
@@ -13,7 +13,7 @@ export default function FormInput({
   name,
   placeholder,
   required,
-  errors,
+  errors = [],
 }: FormInputType) {
   return (
     <div className="flex flex-col">

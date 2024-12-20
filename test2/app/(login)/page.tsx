@@ -6,7 +6,7 @@ import FormButton from "@/components/FormButton";
 import { useActionState } from "react";
 
 export default function Home() {
-  const [state, action] = useActionState(handleForm, null as any);
+  const [state, action] = useActionState(handleForm, null);
   return (
     <div className="flex  flex-col items-center justify-center h-screen w-full">
       <h1>hello</h1>
@@ -16,23 +16,22 @@ export default function Home() {
           name="email"
           placeholder="이메일을 입력해주세요"
           required
-          errors={[]}
+          errors={state?.fieldErrors.email}
         />
         <FormInput
           type="text"
           name="nickName"
           placeholder="닉네임을 입력해주세요"
           required
-          errors={[]}
+          errors={state?.fieldErrors.nickName}
         />
         <FormInput
           type="password"
           name="password"
           placeholder="패스워드를 입력해주세요"
           required
-          errors={state?.errors ?? []}
+          errors={state?.fieldErrors.password}
         />
-        {state?.success && <p className="text-green-500">로그인 성공.</p>}
         <FormButton text="로그인" />
       </form>
     </div>
